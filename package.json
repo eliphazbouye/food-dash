@@ -1,0 +1,23 @@
+{
+  "name": "food-dash",
+  "version": "0.1.0",
+  "description": "Food api",
+  "main": "index.js",
+	"type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EliphazBouye/FoodDash.git"
+  },
+  "author": "Eliphaz Bouye",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EliphazBouye/FoodDash/issues"
+  },
+  "homepage": "https://github.com/EliphazBouye/FoodDash#readme",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
