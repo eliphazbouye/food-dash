@@ -3,12 +3,11 @@
   "version": "0.1.0",
   "description": "Food api",
   "main": "server.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "dev": "node ./build/server.js",
-    "start": "tsc --watch && npm run dev"
+    "dev": "node --env-file=.env --watch ./build/index.js",
+    "start": "tsc --watch"
   },
   "repository": {
     "type": "git",
