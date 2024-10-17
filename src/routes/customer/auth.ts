@@ -14,7 +14,7 @@ authCustomerRoutes.post(
         where: { email: req.body.email },
       });
       if (!customer) {
-        return await res
+        return res
           .status(400)
           .json({ message: `User not found with email: ${req.body.email}` });
       }
@@ -23,7 +23,7 @@ authCustomerRoutes.post(
       const isMatch = await bcrypt.compare(req.body.password, password);
 
       if (!isMatch) {
-        return await res.status(400).json({
+        return res.status(400).json({
           message: `Password is incorrect!`,
         });
       }
@@ -72,6 +72,7 @@ authCustomerRoutes.post(
         email: req.body.email,
         password: passwordHashed,
       };
+      res.setHeader("Content-Type", "application/json");
 
       await prisma.customer.create({ data: customer });
 
