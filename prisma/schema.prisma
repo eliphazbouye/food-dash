@@ -18,11 +18,11 @@ model Customer {
     firstName   String
     lastName   String
     email String @unique    
-    emailVerifiedAt DateTime
+    emailVerifiedAt DateTime?
     password    String
     customerAddress Address?
     customerAvatar  CustomerAvatar?
-    lastLogin   DateTime
+    lastLogin   DateTime?
     createdAt    DateTime    @default(now())
     updatedAt    DateTime    @updatedAt
 }
