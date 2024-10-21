@@ -72,7 +72,6 @@ authCustomerRoutes.post(
                 email: req.body.email,
                 password: passwordHashed,
             };
-            res.setHeader("Content-Type", "application/json");
 
             await prisma.customer.create({ data: customer });
 
