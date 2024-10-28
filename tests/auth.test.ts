@@ -22,10 +22,10 @@ describe("Auth Customer", () => {
         ])
     })
 
-    describe("POST /customer/auth/singup", () => {
+    describe("POST /auth/singup", () => {
         it("responds with json new customer signup", async () => {
             const { status, body } = await request(server)
-                .post("/api/v1/customer/auth/signup")
+                .post("/api/v1/auth/signup")
                 .send(customer);
 
             expect(status).toBe(200)
@@ -39,7 +39,7 @@ describe("Auth Customer", () => {
     describe("POST auth/signin", () => {
         it("should return jwt token", async () => {
             const { status, body } = await request(server)
-                .post("/api/v1/customer/auth/signin")
+                .post("/api/v1/auth/signin")
                 .send(customerSigninInfo);
             expect(status).toBe(200);
 
