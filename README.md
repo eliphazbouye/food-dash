@@ -10,4 +10,3 @@ Food Dash is an application to command food and be delivered. It will be simple 
     - [ ] Validate incoming data
     - [ ] Using DTO for better validation data
 - [ ] Protect API by spaming request
-
