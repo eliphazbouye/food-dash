@@ -1,9 +1,9 @@
 import express, { NextFunction, Request, Response } from "express";
 import passport from "passport";
 
-const profileCustomer = express.Router();
+const customerProfile = express.Router();
 
-profileCustomer.get(
+customerProfile.get(
     "/customer/profile",
     passport.authenticate("jwt", { session: false }),
     async (req: Request, res: Response, next: NextFunction): Promise<any> => {
@@ -12,4 +12,4 @@ profileCustomer.get(
     }
 );
 
-export { profileCustomer };
+export { customerProfile };
