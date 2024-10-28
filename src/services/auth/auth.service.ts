@@ -1,11 +1,11 @@
-import { prisma } from "../lib/prisma";
+import { prisma } from "../../lib/prisma";
 import jwt from "jsonwebtoken";
 import bcrypt from 'bcrypt';
-import { HttpException } from "../common/exceptions";
-import { HttpStatus } from "../common/enums";
+import { HttpException } from "../../common/exceptions";
+import { HttpStatus } from "../../common/enums";
 
 
-export const signIn = async (email: string, plainTextpassword: string) => {
+const signIn = async (email: string, plainTextpassword: string) => {
     try {
         const customer = await prisma.customer.findUniqueOrThrow({
             where: { email: email },
@@ -37,3 +37,5 @@ export const signIn = async (email: string, plainTextpassword: string) => {
         throw new HttpException(err.message, HttpStatus.NOT_FOUND)
     }
 }
+
+export const authService = { signIn }

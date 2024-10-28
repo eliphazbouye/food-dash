@@ -1,22 +1,14 @@
 import express, { NextFunction, Request, Response } from "express";
 import { prisma } from "../lib/prisma";
-import { signIn } from "../services/auth.service";
 import bcrypt from 'bcrypt'
 import { ICustomer } from "../interfaces";
+import { authController } from "../controllers/auth/auth.controller";
 
 const auth = express.Router();
 
 auth.post(
     "/auth/signin",
-    async (req: Request, res: Response, next: any): Promise<any> => {
-        try{
-            const { email, password } = req.body;
-            const access_token = await signIn(email, password);
-            return res.status(200).json(access_token);
-        } catch (err: any) {
-            next(err);
-        }
-    }
+    authController.signIn
 );
 
 auth.post(
