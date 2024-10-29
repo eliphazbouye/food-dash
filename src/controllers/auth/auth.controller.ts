@@ -11,4 +11,16 @@ const signIn = async (req: Request, res: Response, next: NextFunction): Promise<
     }
 }
 
-export const authController = { signIn }
+const signUp = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+    try {
+        await authService.signUp(req.body);
+        return res
+            .status(200)
+            .json({ message: `Account successfully created!` });
+    } catch (err: any) {
+        next(err);
+    }
+
+}
+
+export const authController = { signIn, signUp }
