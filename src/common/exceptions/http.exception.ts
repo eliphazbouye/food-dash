@@ -5,7 +5,7 @@ interface HttpExceptionOptions {
 export class HttpException extends Error {
     constructor(
         private readonly response: string,
-        private readonly status: number, 
+        private readonly status: number,
         private readonly options?:  HttpExceptionOptions) {
         super();
         this.initName();
@@ -26,5 +26,12 @@ export class HttpException extends Error {
 
     private initName() {
         return this.name = this.constructor.name;
-    } 
+    }
+
+    getErrorResponse() {
+        return {
+            status: this.status,
+            message: this.message,
+        }
+    }
 }
